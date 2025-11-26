@@ -14,11 +14,10 @@
             --text: #e9eef6;
             --muted: #9aa4b2;
             --accent: #3b82f6;
-            --border: rgba(255, 255, 255, 0.12);
-            --card-bg: rgba(255, 255, 255, 0.06);
+            --border: rgba(255,255,255,0.12);
+            --card-bg: rgba(255,255,255,0.06);
         }
 
-        /* GLOBAL */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -29,25 +28,23 @@
             overflow-x: hidden;
         }
 
-        /* BACKGROUND */
         .animated-bg {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             background: radial-gradient(circle at 25% 15%, #0f172a, #0b0e12 80%);
             z-index: -2;
         }
 
         .orb {
             position: fixed;
-            width: 300px; height: 300px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             filter: blur(130px);
             opacity: 0.32;
             animation: float 11s ease-in-out infinite alternate;
             z-index: -1;
         }
-
         .orb.blue { background: #3b82f6; top: 18%; left: 12%; }
         .orb.gold { background: #facc15; bottom: 10%; right: 10%; }
 
@@ -56,27 +53,26 @@
             to { transform: translateY(-35px); }
         }
 
-        /* PAGE WRAPPER */
         .page-wrapper {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 110px 22px 80px;
-            text-align: center;
+            padding: 110px 22px 70px;
         }
 
-        /* HEADERS */
         h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.6rem;
             font-weight: 800;
+            text-align: center;
             margin-bottom: 15px;
         }
 
         .page-subtitle {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 650px;
+            text-align: center;
+            max-width: 660px;
             margin: 0 auto 30px;
+            color: var(--muted);
+            font-size: 1.08rem;
         }
 
         .blue-divider {
@@ -84,158 +80,187 @@
             border: 0;
             border-top: 2px solid var(--accent);
             margin: 22px auto 40px;
-            border-radius: 2px;
             opacity: 0.85;
+            border-radius: 2px;
             box-shadow: 0 0 12px rgba(59,130,246,0.45);
         }
 
-        /* CATEGORY GRID */
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 26px;
-        }
-
-        @media (max-width: 700px) {
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* CARD */
-        .category-card {
+        .card {
             background: var(--card-bg);
-            padding: 22px 22px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.09);
+            padding: 22px;
+            margin-bottom: 28px;
             box-shadow:
                 0 0 16px rgba(59,130,246,0.25),
                 0 0 6px rgba(0,0,0,0.7);
-            transition: 0.25s ease;
-            text-align: left;
         }
 
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 0 22px rgba(59,130,246,0.6),
-                0 0 10px rgba(0,0,0,0.7);
-            border-color: rgba(59,130,246,0.6);
-        }
-
-        .category-title {
+        .card h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.35rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .category-description {
-            color: var(--muted);
+        .card p, .card li {
             font-size: 1rem;
-            margin-bottom: 12px;
+            color: var(--muted);
         }
 
-        /* TICKER LIST */
-        .ticker-list span {
+        ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        li { margin-bottom: 8px; }
+
+        .risk-box {
+            display: inline-block;
+            background: rgba(59,130,246,0.2);
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(59,130,246,0.4);
+            color: #fff;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .ticker-grid span {
             display: inline-block;
             background: rgba(255,255,255,0.07);
             padding: 6px 10px;
             border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.08);
-            margin: 4px 6px 6px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin: 4px;
             color: #fff;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- BACKGROUND -->
     <div class="animated-bg"></div>
     <div class="orb blue"></div>
     <div class="orb gold"></div>
 
     <div class="page-wrapper">
 
-        <!-- HEADER -->
         <h1>Mutual Funds</h1>
         <p class="page-subtitle">
-            Mutual funds offer diversification, professional management,  
-            and simple long-term investing. Explore the main types below.
+            Mutual funds give you instant diversification — without needing to pick individual investments.  
+            They’re managed by professionals and designed to help beginners grow steadily and confidently.
         </p>
 
         <hr class="blue-divider">
 
-        <!-- CATEGORY GRID -->
-        <div class="category-grid">
+        <!-- WHAT IT IS -->
+        <div class="card">
+            <h2>What It Is</h2>
+            <p>
+                A mutual fund is a professionally managed basket of investments.  
+                When you buy a share of a mutual fund, you own a small piece of everything inside it — stocks, bonds, or a mix.
+            </p>
+            <p>
+                They’re great for beginners who want diversification without choosing individual tickers one by one.
+            </p>
+        </div>
 
-            <!-- S&P 500 INDEX MUTUAL FUNDS -->
-            <div class="category-card">
-                <div class="category-title">S&P 500 Index Mutual Funds</div>
-                <p class="category-description">
-                    Track the performance of the 500 largest U.S. companies.
-                </p>
-                <div class="ticker-list">
-                    <span>VFIAX</span><span>FXAIX</span><span>SWPPX</span>
-                </div>
+        <!-- HOW IT WORKS -->
+        <div class="card">
+            <h2>How It Works</h2>
+            <p>Mutual funds operate in a simple structure:</p>
+            <ul>
+                <li><strong>You invest money.</strong> Your funds are pooled together with thousands of other investors.</li>
+                <li><strong>A professional manager invests it.</strong> They choose what to buy based on the fund’s strategy.</li>
+                <li><strong>You benefit from growth + dividends.</strong> The value (NAV) changes daily.</li>
+            </ul>
+            <p>
+                Most retirement plans (401(k), IRA) heavily use mutual funds because they’re structured, consistent, and diversified.
+            </p>
+        </div>
+
+        <!-- PROS -->
+        <div class="card">
+            <h2>Pros</h2>
+            <ul>
+                <li>✔ Professionally managed</li>
+                <li>✔ Extremely diversified</li>
+                <li>✔ Simple for beginners</li>
+                <li>✔ Great for retirement accounts</li>
+                <li>✔ Automatic reinvestment options</li>
+            </ul>
+        </div>
+
+        <!-- CONS -->
+        <div class="card">
+            <h2>Cons</h2>
+            <ul>
+                <li>✘ Fees can be higher than ETFs</li>
+                <li>✘ Trades settle once per day (not instant)</li>
+                <li>✘ Harder to buy fractional shares in some platforms</li>
+            </ul>
+        </div>
+
+        <!-- RISK -->
+        <div class="card">
+            <h2>Risk Level</h2>
+            <p class="risk-box">⭐️⭐️⭐️ (Moderate Risk)</p>
+            <p>
+                Depends on the type:  
+                Stock mutual funds = higher risk  
+                Bond mutual funds = lower risk  
+                Target-date funds = balanced
+            </p>
+        </div>
+
+        <!-- TIME HORIZON -->
+        <div class="card">
+            <h2>Time Horizon</h2>
+            <p>
+                Best for long-term investing (5–30+ years), especially inside retirement accounts.
+            </p>
+        </div>
+
+        <!-- MISTAKES -->
+        <div class="card">
+            <h2>Beginner Mistakes to Avoid</h2>
+            <ul>
+                <li>❌ Ignoring fees (expense ratios)</li>
+                <li>❌ Buying actively managed funds without understanding risks</li>
+                <li>❌ Mixing too many similar mutual funds</li>
+                <li>❌ Not checking what the fund actually invests in</li>
+            </ul>
+        </div>
+
+        <!-- TICKERS -->
+        <div class="card">
+            <h2>Popular Mutual Funds</h2>
+
+            <h3 style="margin-top:15px;">📌 Total Market Mutual Funds</h3>
+            <div class="ticker-grid">
+                <span>VTSAX</span><span>FXAIX</span><span>SWTSX</span><span>FZROX</span>
             </div>
 
-            <!-- TOTAL U.S. MARKET MUTUAL FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Total U.S. Market Mutual Funds</div>
-                <p class="category-description">
-                    Own nearly all publicly traded U.S. companies.
-                </p>
-                <div class="ticker-list">
-                    <span>VTSAX</span><span>SWTSX</span><span>FZROX</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 S&P 500 Mutual Funds</h3>
+            <div class="ticker-grid">
+                <span>VFIAX</span><span>SWPPX</span><span>FXAIX</span>
             </div>
 
-            <!-- TOTAL WORLD MUTUAL FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Total World Mutual Funds</div>
-                <p class="category-description">
-                    Global diversification in a single fund (U.S. + international).
-                </p>
-                <div class="ticker-list">
-                    <span>VTWAX</span><span>Vanguard Total Intl</span><span>Fidelity Intl Index</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 International Mutual Funds</h3>
+            <div class="ticker-grid">
+                <span>VTIAX</span><span>FSGGX</span><span>SWISX</span>
             </div>
 
-            <!-- DIVIDEND MUTUAL FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Dividend Mutual Funds</div>
-                <p class="category-description">
-                    Invest in companies that pay consistent dividends.
-                </p>
-                <div class="ticker-list">
-                    <span>VDADX</span><span>VHDYX</span><span>FDGFX</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 Bond Mutual Funds</h3>
+            <div class="ticker-grid">
+                <span>VBTLX</span><span>SWAGX</span><span>FBNDX</span>
             </div>
 
-            <!-- GROWTH MUTUAL FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Growth Mutual Funds</div>
-                <p class="category-description">
-                    Focus on fast-growing businesses and innovation.
-                </p>
-                <div class="ticker-list">
-                    <span>VIGAX</span><span>FSPGX</span><span>PRGFX</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 Target-Date Retirement Funds</h3>
+            <div class="ticker-grid">
+                <span>VFFVX</span><span>VTTSX</span><span>FDEWX</span><span>TRRMX</span>
             </div>
-
-            <!-- TARGET DATE FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Target-Date Retirement Funds</div>
-                <p class="category-description">
-                    Automatically adjust risk based on your retirement year.
-                </p>
-                <div class="ticker-list">
-                    <span>VFFVX (2055)</span><span>FFFFX (2060)</span><span>TRRMX (2050)</span>
-                </div>
-            </div>
-
         </div>
 
     </div>
