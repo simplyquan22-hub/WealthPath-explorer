@@ -14,26 +14,24 @@
             --text: #e9eef6;
             --muted: #9aa4b2;
             --accent: #3b82f6;
-            --border: rgba(255, 255, 255, 0.12);
-            --card-bg: rgba(255, 255, 255, 0.06);
+            --border: rgba(255,255,255,0.12);
+            --card-bg: rgba(255,255,255,0.06);
         }
 
-        /* GLOBAL */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: var(--bg);
             color: var(--text);
             font-family: 'Inter', sans-serif;
-            line-height: 1.65;
             overflow-x: hidden;
+            line-height: 1.65;
         }
 
         /* BACKGROUND */
         .animated-bg {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             background: radial-gradient(circle at 25% 15%, #0f172a, #0b0e12 80%);
             z-index: -2;
         }
@@ -48,159 +46,213 @@
             z-index: -1;
         }
 
-        .orb.blue { background: #3b82f6; top: 18%; left: 12%; }
-        .orb.gold { background: #facc15; bottom: 10%; right: 10%; }
+        .orb.blue { background:#3b82f6; top:18%; left:12%; }
+        .orb.gold { background:#facc15; bottom:10%; right:10%; }
 
         @keyframes float {
             from { transform: translateY(0); }
             to { transform: translateY(-35px); }
         }
 
-        /* PAGE WRAPPER */
+        /* WRAPPER */
         .page-wrapper {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 110px 22px 80px;
-            text-align: center;
+            padding: 110px 22px 70px;
         }
 
-        /* HEADERS */
         h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin-bottom: 15px;
+            font-family:'Montserrat',sans-serif;
+            font-size:2.6rem;
+            font-weight:800;
+            text-align:center;
+            margin-bottom:15px;
         }
 
         .page-subtitle {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 650px;
-            margin: 0 auto 30px;
+            text-align:center;
+            max-width:650px;
+            margin:0 auto 30px;
+            color:var(--muted);
+            font-size:1.08rem;
         }
 
         .blue-divider {
-            width: 130px;
-            border: 0;
-            border-top: 2px solid var(--accent);
-            margin: 22px auto 40px;
-            border-radius: 2px;
-            opacity: 0.85;
-            box-shadow: 0 0 12px rgba(59,130,246,0.45);
+            width:130px;
+            border:0;
+            border-top:2px solid var(--accent);
+            margin:22px auto 40px;
+            opacity:0.85;
+            border-radius:2px;
+            box-shadow:0 0 12px rgba(59,130,246,0.45);
         }
 
-        /* CATEGORY GRID */
-        .category-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 26px;
-        }
-
-        @media (max-width: 700px) {
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* CARD */
-        .category-card {
-            background: var(--card-bg);
-            padding: 22px 22px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
+        /* CARDS */
+        .card {
+            background:var(--card-bg);
+            padding:22px 22px 28px;
+            border-radius:18px;
+            border:1px solid rgba(255,255,255,0.09);
+            margin-bottom:26px;
             box-shadow:
                 0 0 16px rgba(59,130,246,0.25),
                 0 0 6px rgba(0,0,0,0.7);
-            transition: 0.25s ease;
-            text-align: left;
         }
 
-        .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 0 22px rgba(59,130,246,0.6),
-                0 0 10px rgba(0,0,0,0.7);
-            border-color: rgba(59,130,246,0.6);
+        .card h2 {
+            font-family:'Montserrat',sans-serif;
+            font-size:1.35rem;
+            margin-bottom:10px;
         }
 
-        .category-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.35rem;
-            margin-bottom: 8px;
+        .card p, .card li {
+            font-size:1rem;
+            color:var(--muted);
         }
 
-        .category-description {
-            color: var(--muted);
-            font-size: 1rem;
-            margin-bottom: 12px;
+        ul { padding-left:20px; }
+        li { margin-bottom:8px; }
+
+        .risk-box {
+            display:inline-block;
+            background:rgba(59,130,246,0.2);
+            padding:8px 14px;
+            border-radius:8px;
+            border:1px solid rgba(59,130,246,0.4);
+            color:white;
+            font-weight:600;
+            margin-top:10px;
         }
 
-        /* TICKER LIST */
-        .ticker-list span {
-            display: inline-block;
-            background: rgba(255,255,255,0.07);
-            padding: 6px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.08);
-            margin: 4px 6px 6px 0;
-            color: #fff;
-            font-size: 0.98rem;
+        /* TICKER GRID */
+        .ticker-grid span {
+            display:inline-block;
+            background:rgba(255,255,255,0.07);
+            padding:6px 10px;
+            border-radius:6px;
+            border:1px solid rgba(255,255,255,0.1);
+            margin:4px;
+            font-size:0.95rem;
+            color:#fff;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- BACKGROUND -->
     <div class="animated-bg"></div>
     <div class="orb blue"></div>
     <div class="orb gold"></div>
 
     <div class="page-wrapper">
 
-        <!-- HEADER -->
         <h1>Index Funds</h1>
         <p class="page-subtitle">
-            Index funds track an entire market — making them simple, diversified,  
-            and perfect for long-term investing. Explore the main types below.
+            Index funds are the heartbeat of long-term wealth.  
+            They remove the guesswork and let your money grow quietly in the background — 
+            following the entire market, not one company.
         </p>
 
         <hr class="blue-divider">
 
-        <!-- CATEGORY GRID -->
-        <div class="category-grid">
+        <!-- WHAT IT IS -->
+        <div class="card">
+            <h2>What It Is</h2>
+            <p>
+                Index funds are investment funds that track entire markets — like the S&P 500 or the Total U.S. Market.  
+                Instead of trying to beat the market, they simply match it, which historically outperforms most 
+                stock pickers and active managers.
+            </p>
+        </div>
 
-            <!-- S&P 500 INDEX FUNDS -->
-            <div class="category-card">
-                <div class="category-title">S&P 500 Index Funds</div>
-                <p class="category-description">
-                    Track the 500 largest U.S. companies.
-                </p>
-                <div class="ticker-list">
-                    <span>VFIAX</span><span>FXAIX</span><span>SWPPX</span>
-                </div>
+        <!-- HOW IT WORKS -->
+        <div class="card">
+            <h2>How It Works</h2>
+            <p>Index funds use a simple formula:</p>
+            <ul>
+                <li><strong>1. Track a market index</strong> — like the S&P 500 or Total Market.</li>
+                <li><strong>2. Automatically adjust holdings</strong> to stay aligned with the index.</li>
+                <li><strong>3. Provide instant diversification</strong> across hundreds or thousands of companies.</li>
+                <li><strong>4. Grow with the market</strong> through long-term compounding.</li>
+                <li><strong>5. Charge extremely low fees</strong> — keeping more of your growth.</li>
+            </ul>
+            <p>It’s the closest thing to “hands-off wealth building” ever created.</p>
+        </div>
+
+        <!-- PROS -->
+        <div class="card">
+            <h2>Pros</h2>
+            <ul>
+                <li>✔ Very low cost</li>
+                <li>✔ Extremely diversified</li>
+                <li>✔ Proven long-term performance</li>
+                <li>✔ Ideal for retirement investing</li>
+                <li>✔ Removes stress and decision fatigue</li>
+            </ul>
+        </div>
+
+        <!-- CONS -->
+        <div class="card">
+            <h2>Cons</h2>
+            <ul>
+                <li>✘ Won’t outperform the market</li>
+                <li>✘ Requires patience — slow and steady</li>
+                <li>✘ Still fluctuates during market downturns</li>
+            </ul>
+        </div>
+
+        <!-- RISK LEVEL -->
+        <div class="card">
+            <h2>Risk Level</h2>
+            <p class="risk-box">⭐️⭐️ (Low–Medium Risk)</p>
+            <p>
+                Index funds are among the safest growth investments — but they still rise and fall with the market.  
+                Long-term patience is your greatest advantage.
+            </p>
+        </div>
+
+        <!-- TIME HORIZON -->
+        <div class="card">
+            <h2>Time Horizon</h2>
+            <p>
+                Best for 5–30+ year goals.  
+                The longer you hold, the more consistent your returns become.
+            </p>
+        </div>
+
+        <!-- MISTAKES -->
+        <div class="card">
+            <h2>Beginner Mistakes to Avoid</h2>
+            <ul>
+                <li>❌ Switching indexes too often</li>
+                <li>❌ Owning too many overlapping funds</li>
+                <li>❌ Expecting fast results</li>
+                <li>❌ Thinking index funds won’t drop during recessions</li>
+            </ul>
+        </div>
+
+        <!-- TICKERS -->
+        <div class="card">
+            <h2>Popular Index Funds & Tickers</h2>
+
+            <h3 style="margin-top:15px;">📌 Total U.S. Market Index Funds</h3>
+            <div class="ticker-grid">
+                <span>VTSAX</span><span>VTI</span><span>SWTSX</span><span>FSKAX</span><span>ITOT</span>
             </div>
 
-            <!-- TOTAL U.S. MARKET INDEX FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Total U.S. Market Index Funds</div>
-                <p class="category-description">
-                    Track nearly every publicly traded company in the U.S.
-                </p>
-                <div class="ticker-list">
-                    <span>VTSAX</span><span>SWTSX</span><span>FZROX</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 S&P 500 Index Funds</h3>
+            <div class="ticker-grid">
+                <span>VFIAX</span><span>FXAIX</span><span>SWPPX</span><span>SPY</span><span>VOO</span><span>IVV</span>
             </div>
 
-            <!-- TOTAL WORLD INDEX FUNDS -->
-            <div class="category-card">
-                <div class="category-title">Total World Index Funds</div>
-                <p class="category-description">
-                    Track the entire global stock market — U.S. + international.
-                </p>
-                <div class="ticker-list">
-                    <span>VTWAX</span><span>Fidelity Total Intl Index</span><span>Vanguard Total Intl Admiral</span>
-                </div>
+            <h3 style="margin-top:20px;">📌 Total World Index Funds</h3>
+            <div class="ticker-grid">
+                <span>VTWAX</span><span>VT</span><span>ACWI</span><span>URTH</span>
+            </div>
+
+            <h3 style="margin-top:20px;">📌 International Index Funds</h3>
+            <div class="ticker-grid">
+                <span>VTIAX</span><span>SCHF</span><span>VEA</span><span>IXUS</span>
             </div>
 
         </div>
