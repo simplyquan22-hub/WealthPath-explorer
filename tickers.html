@@ -14,8 +14,8 @@
             --text: #e9eef6;
             --muted: #9aa4b2;
             --accent: #3b82f6;
-            --border: rgba(255, 255, 255, 0.12);
-            --card-bg: rgba(255, 255, 255, 0.06);
+            --border: rgba(255,255,255,0.12);
+            --card-bg: rgba(255,255,255,0.06);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,6 +25,7 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* BACKGROUND */
@@ -32,189 +33,213 @@
             position: fixed;
             inset: 0;
             background: radial-gradient(circle at 25% 15%, #0f172a, #0b0e12 80%);
-            z-index: -3;
+            z-index: -2;
         }
         .orb {
             position: fixed;
-            width: 300px;
-            height: 300px;
-            filter: blur(130px);
-            opacity: 0.32;
+            width: 300px; height: 300px;
             border-radius: 50%;
-            animation: float 11s ease-in-out infinite alternate;
-            z-index: -2;
+            filter: blur(130px);
+            opacity: 0.34;
+            animation: float 12s ease-in-out infinite alternate;
+            z-index: -1;
         }
         .orb.blue { background: #3b82f6; top: 18%; left: 12%; }
         .orb.gold { background: #facc15; bottom: 10%; right: 10%; }
-        @keyframes float { from {transform:translateY(0);} to {transform:translateY(-35px);} }
 
-        /* PAGE WRAPPER */
+        @keyframes float { from { transform: translateY(0);} to { transform: translateY(-35px);} }
+
+        /* WRAPPER */
         .page-wrapper {
             max-width: 1000px;
-            margin: 0 auto;
             padding: 110px 22px 80px;
+            margin: auto;
             text-align: center;
         }
 
         /* HERO */
         .hero-tagline {
-            font-size: 0.95rem;
-            color: var(--accent);
-            font-weight: 600;
+            font-size: 0.92rem;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
         }
+
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
             font-size: 2.6rem;
-            margin-bottom: 15px;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
+
         .hero-subtitle {
-            font-size: 1.08rem;
+            font-size: 1.1rem;
             color: var(--muted);
-            max-width: 620px;
+            max-width: 650px;
             margin: 0 auto 32px;
         }
+
         .blue-divider {
-            width:130px;
-            border-top:2px solid var(--accent);
-            margin:22px auto 40px;
-            opacity:0.85;
-            border-radius:2px;
-            box-shadow:0 0 12px rgba(59,130,246,0.45);
+            width: 130px;
+            margin: 25px auto 45px;
+            border-top: 2px solid var(--accent);
+            border-radius: 2px;
+            opacity: 0.85;
+            box-shadow: 0 0 12px rgba(59,130,246,0.5);
         }
 
-        /* CARD (MATCHES YOUR EXACT DESIGN) */
-        .glass-card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 0 18px rgba(59,130,246,0.25);
-            padding: 24px 28px;
-            max-width: 780px;
-            margin: 0 auto;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
+        /* SEARCH */
+        .search-container { max-width: 550px; margin: 0 auto; }
 
-        .glass-card::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 18px;
-            background: radial-gradient(circle at top left, rgba(59,130,246,0.45), transparent 55%);
-            opacity: 0.25;
-        }
-
-        /* INPUT */
-        .ticker-input {
+        #tickerInput {
             width: 100%;
-            padding: 12px 14px;
+            padding: 14px 18px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
             color: var(--text);
-            margin-top: 12px;
-            margin-bottom: 16px;
             font-size: 1rem;
+            outline: none;
+        }
+        #tickerInput:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(59,130,246,0.4);
         }
 
-        /* BUTTON */
-        .btn {
-            display: inline-block;
+        #searchBtn {
+            margin-top: 14px;
             padding: 12px 28px;
+            border-radius: 999px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(59,130,246,0.55);
+        }
+
+        /* EXPLANATION CARD */
+        #explanationBox {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            margin: 35px auto;
+            max-width: 850px;
+            text-align: left;
+            box-shadow: 0 0 18px rgba(59,130,246,0.2);
+        }
+
+        #explanationBox h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .type-label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+        .type-bar {
+            width: 70px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        /* RECOMMENDED */
+        #recommendedSection {
+            display: none;
+            margin: 20px auto 10px;
+            max-width: 900px;
+            text-align: left;
+        }
+        .recommended-title {
+            font-size: 1.27rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .mini-card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .mini-card {
+            padding: 10px 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(59,130,246,0.22);
+        }
+
+        /* MARKETWATCH BUTTON */
+        #openMarketBtn {
+            display: none;
+            margin: 30px auto 10px;
+            padding: 14px 32px;
             border-radius: 999px;
             background: var(--accent);
             color: white;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(59,130,246,0.55);
+        }
+
+        /* WHAT TO LOOK FOR */
+        #lookSection { display: none; margin-top: 35px; text-align: left; }
+        .look-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .look-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 16px;
+        }
+        .look-card {
+            background: rgba(255,255,255,0.05);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 0 16px rgba(59,130,246,0.22);
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+        .look-icon { font-size: 1.4rem; margin-bottom: 6px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* BACK BUTTON */
+        .back-button {
+            margin-top: 50px;
+            display: inline-block;
+            padding: 12px 26px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: white;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            box-shadow:
-                0 0 20px rgba(59,130,246,0.5),
-                0 0 7px rgba(59,130,246,0.7);
-            transition: 0.18s ease;
-            cursor: pointer;
+            box-shadow: 0 0 22px rgba(59,130,246,0.55);
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow:
-                0 0 26px rgba(59,130,246,0.7),
-                0 0 10px rgba(59,130,246,0.9);
-        }
-
-        /* RESULT TYPE */
-        #resultType {
-            display:none;
-            font-size:0.95rem;
-            font-weight:600;
-            color:var(--accent);
-            margin-bottom:3px;
-        }
-
-        /* Tiny blue line */
-        #typeLine {
-            display:none;
-            width: 60px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-            margin-bottom: 14px;
-            box-shadow:0 0 10px rgba(59,130,246,0.6);
-        }
-
-        /* SYMBOL */
-        #resultSymbol {
-            display:none;
-            font-family: 'Montserrat';
-            font-size:1.6rem;
-            font-weight:800;
-            margin-bottom:6px;
-        }
-        #resultNote {
-            display:none;
-            color:var(--muted);
-            font-size:0.95rem;
-            margin-bottom:18px;
-        }
-
-        /* WHAT TO LOOK FOR (fade-in) */
-        #lookCard {
-            display:none;
-            opacity:0;
-            animation: fadeInUp 0.45s ease forwards;
-        }
-        @keyframes fadeInUp {
-            from { opacity:0; transform: translateY(10px); }
-            to   { opacity:1; transform: translateY(0); }
-        }
-        #lookCard ul { margin-top:10px; }
-        #lookCard li {
-            margin-bottom:6px;
-            color:var(--muted);
-            font-size:0.92rem;
-        }
-
-        /* PILL ROW */
-        .pill-row {
-            display:flex;
-            flex-wrap:wrap;
-            gap:8px;
-            margin-bottom:16px;
-        }
-        .pill {
-            padding:7px 12px;
-            border-radius:999px;
-            background:rgba(255,255,255,0.06);
-            border:1px solid rgba(255,255,255,0.14);
-            font-size:0.85rem;
-            cursor:pointer;
-        }
-        .pill:hover {
-            background:rgba(59,130,246,0.3);
-        }
-
     </style>
 </head>
 
@@ -226,144 +251,167 @@
 
 <div class="page-wrapper">
 
-    <div class="hero-tagline">Beginner-Friendly Research</div>
+    <div class="hero-tagline">WealthPath Research Tool</div>
 
-    <h1>Ticker Explorer</h1>
+    <h1>WealthPath Ticker Explorer</h1>
 
     <p class="hero-subtitle">
-        Search any stock, ETF, mutual fund, or crypto ticker and instantly open it on MarketWatch.
+        Search any ETF, stock, index fund, mutual fund, crypto, or commodity — and get clear analysis instantly.
     </p>
 
     <hr class="blue-divider">
 
-    <!-- SEARCH CARD -->
-    <div class="glass-card">
-
-        <div style="font-weight:700; color:var(--accent);">🔍 Search Ticker</div>
-
-        <input id="tickerInput" class="ticker-input" placeholder="Enter a ticker (VTI, AAPL, BTC, VTSAX)">
-
-        <button id="searchBtn" class="btn">Search</button>
-
-        <!-- RESULT -->
-        <div id="resultType"></div>
-        <div id="typeLine"></div>
-
-        <div id="resultSymbol"></div>
-        <div id="resultNote"></div>
-
-        <a id="openBtn" class="btn" style="display:none; margin-bottom:16px;" target="_blank"></a>
-
-        <div class="pill-row" id="recommendedRow"></div>
-
-        <!-- WHAT TO LOOK FOR -->
-        <div id="lookCard">
-            <div style="font-weight:600; color:var(--accent)">What to look for</div>
-            <ul id="lookList"></ul>
-        </div>
-
+    <!-- SEARCH -->
+    <div class="search-container">
+        <input id="tickerInput" placeholder="Enter a ticker (ex: VTI, AAPL, BTC, VTSAX)">
+        <button id="searchBtn">Search</button>
     </div>
 
-    <a href="index.html" class="btn" style="margin-top:40px;">← Back to Categories</a>
+    <!-- EXPLANATION -->
+    <div id="explanationBox"></div>
+
+    <!-- RECOMMENDED -->
+    <div id="recommendedSection">
+        <div class="recommended-title">Recommended Tickers</div>
+        <div id="recommendedGrid" class="mini-card-grid"></div>
+    </div>
+
+    <!-- MARKETWATCH BUTTON -->
+    <a id="openMarketBtn" target="_blank">Open Full Details on MarketWatch →</a>
+
+    <!-- WHAT TO LOOK FOR -->
+    <div id="lookSection">
+        <div class="look-title">What to Look For</div>
+        <div id="lookGrid" class="look-grid"></div>
+    </div>
+
+    <!-- BACK -->
+    <a href="index.html" class="back-button">← Back to Categories</a>
 
 </div>
 
 <script>
-const input = document.getElementById("tickerInput");
-const type = document.getElementById("resultType");
-const line = document.getElementById("typeLine");
-const symbol = document.getElementById("resultSymbol");
-const note = document.getElementById("resultNote");
-const openBtn = document.getElementById("openBtn");
-const lookCard = document.getElementById("lookCard");
-const lookList = document.getElementById("lookList");
-const recRow = document.getElementById("recommendedRow");
+/* TYPE DETECTION */
+function detectType(t) {
+    const upper = t.toUpperCase();
 
-function searchTicker(){
-    const t = input.value.trim().toUpperCase();
-    if(!t) return;
+    const cryptoSet = ["BTC","ETH","SOL","ADA","XRP","DOGE","LTC"];
+    if (cryptoSet.includes(upper)) return "crypto";
 
-    symbol.textContent = t;
-    symbol.style.display = "block";
+    if (upper.endsWith("X")) return "mutual";
+    if (upper.length <= 4) return "stock";
 
-    note.textContent = "Click below to open full price, performance, news and holdings.";
-    note.style.display = "block";
-
-    let typeText = "📊 Stock / ETF";
-    let look = [
-        "Performance (1Y, 5Y, Max)",
-        "Sector exposure",
-        "Holdings breakdown",
-        "Volatility",
-        "Analyst sentiment"
-    ];
-
-    if(["BTC","ETH","SOL","XRP","ADA","LTC","DOGE"].includes(t)){
-        typeText = "₿ Crypto";
-        look = [
-            "Volatility level",
-            "Long-term trend",
-            "Market cap",
-            "Adoption & utility",
-            "Major news events"
-        ];
-    }
-    else if(t.endsWith("X")){
-        typeText = "💼 Mutual Fund";
-        look = [
-            "Expense ratio",
-            "Top holdings",
-            "Fund strategy",
-            "Long-term returns",
-            "Manager track record"
-        ];
-    }
-
-    type.textContent = typeText;
-    type.style.display = "block";
-    line.style.display = "block";
-
-    // MARKETWATCH URL
-    let url = "";
-    if(typeText === "₿ Crypto"){
-        url = `https://www.marketwatch.com/investing/cryptocurrency/${t.toLowerCase()}usd`;
-    } else if(typeText === "💼 Mutual Fund"){
-        url = `https://www.marketwatch.com/investing/fund/${t.toLowerCase()}`;
-    } else {
-        url = `https://www.marketwatch.com/investing/stock/${t.toLowerCase()}`;
-    }
-    openBtn.href = url;
-    openBtn.textContent = "Open on MarketWatch →";
-    openBtn.style.display = "inline-block";
-
-    // Recommended pills
-    recRow.innerHTML = "";
-    const recList = typeText==="₿ Crypto" ? ["BTC","ETH","SOL"] :
-                    typeText==="💼 Mutual Fund" ? ["VTSAX","SWPPX","FXAIX"] :
-                    ["VTI","VOO","QQQ"];
-
-    recList.forEach(r=>{
-        const pill=document.createElement("div");
-        pill.className="pill";
-        pill.textContent=r;
-        pill.onclick=()=>{ input.value=r; searchTicker(); };
-        recRow.appendChild(pill);
-    });
-
-    // What to look for
-    lookList.innerHTML="";
-    look.forEach(i=>{
-        const li=document.createElement("li");
-        li.textContent=i;
-        lookList.appendChild(li);
-    });
-
-    lookCard.style.display="block";
-    lookCard.style.opacity="1";
+    return "etf";
 }
 
-document.getElementById("searchBtn").onclick = searchTicker;
-input.addEventListener("keydown", e => e.key==="Enter" && searchTicker());
+/* RECOMMENDED LISTS */
+const recommended = {
+    etf: ["VTI","VOO","QQQ","SCHD","VT"],
+    stock: ["AAPL","MSFT","NVDA","AMZN","META"],
+    mutual: ["VTSAX","FXAIX","SWPPX"],
+    crypto: ["BTC","ETH","SOL"],
+    commodity: ["GOLD","OIL","SILVER"]
+};
+
+/* WHAT TO LOOK FOR CARDS */
+const lookData = {
+    etf: [
+        ["📊","Holdings","See top companies inside."],
+        ["🧭","Index","Know what benchmark it tracks."],
+        ["📈","Sectors","See weighted industries."],
+        ["💰","Expense Ratio","Lower fees win long-term."],
+        ["💵","Dividends","Some ETFs pay out income."]
+    ],
+    stock: [
+        ["🏦","Company Strength","Revenue + profitability."],
+        ["📈","Growth","Is the business expanding?"],
+        ["📊","Market Cap","Large-cap = safer."],
+        ["📉","Volatility","Small caps swing more."],
+        ["📰","Recent News","News instantly moves stocks."]
+    ],
+    mutual: [
+        ["🧭","Benchmark","Long-term target index."],
+        ["💰","Expense Ratio","Fees matter a lot."],
+        ["📘","Category","Large/mid/small-cap."],
+        ["📉","Turnover","Higher turnover = higher taxes."],
+        ["📈","Long-Term Use","Designed for 10+ years."]
+    ],
+    crypto: [
+        ["⚡","Volatility","Moves very fast."],
+        ["🔒","Security","Is chain battle-tested?" ],
+        ["🌐","Utility","Actual use cases?"],
+        ["📉","Sentiment","Hype drives price."],
+        ["💧","Liquidity","Higher = safer trading."]
+    ]
+};
+
+/* BUILD RECOMMENDED */
+function showRecommended(type) {
+    const grid = document.getElementById("recommendedGrid");
+    grid.innerHTML = "";
+    recommended[type].forEach(t => {
+        const div = document.createElement("div");
+        div.className = "mini-card";
+        div.textContent = "⭐ " + t;
+        div.onclick = () => { tickerInput.value = t; searchBtn.click(); };
+        grid.appendChild(div);
+    });
+}
+
+/* BUILD LOOK CARDS */
+function showLookCards(type) {
+    const grid = document.getElementById("lookGrid");
+    grid.innerHTML = "";
+    lookData[type].forEach(([icon,title,desc], i) => {
+        const el = document.createElement("div");
+        el.className = "look-card";
+        el.style.animationDelay = (i * 0.08) + "s";
+        el.innerHTML = `
+            <div class="look-icon">${icon}</div>
+            <h4>${title}</h4>
+            <p>${desc}</p>
+        `;
+        grid.appendChild(el);
+    });
+}
+
+/* MAIN SEARCH */
+searchBtn.onclick = () => {
+    const raw = tickerInput.value.trim();
+    if (!raw) return;
+
+    const t = raw.toUpperCase();
+    const type = detectType(t);
+
+    /* MARKETWATCH URL LOGIC */
+    let url = "";
+    if (type === "stock") url = `https://www.marketwatch.com/investing/stock/${t.toLowerCase()}`;
+    if (type === "etf" || type === "mutual") url = `https://www.marketwatch.com/investing/fund/${t.toLowerCase()}`;
+    if (type === "crypto") url = `https://www.marketwatch.com/investing/cryptocurrency/${t.toLowerCase()}usd`;
+
+    /* SHOW EXPLANATION */
+    const box = document.getElementById("explanationBox");
+    box.style.display = "block";
+    box.innerHTML = `
+        <h2>${t} — ${type.toUpperCase()}</h2>
+        <div class="type-label">${type}</div>
+        <div class="type-bar"></div>
+        <p>Tap the button below to open full details on MarketWatch — overview, performance, news, financials and more.</p>
+    `;
+
+    /* Recommended */
+    document.getElementById("recommendedSection").style.display = "block";
+    showRecommended(type);
+
+    /* MarketWatch link */
+    const btn = document.getElementById("openMarketBtn");
+    btn.style.display = "inline-block";
+    btn.href = url;
+
+    /* What to Look For */
+    document.getElementById("lookSection").style.display = "block";
+    showLookCards(type);
+};
 </script>
 
 </body>
