@@ -245,97 +245,126 @@
     color:var(--muted);
 ">
 
+    <!-- Title -->
     <div style="
-    font-size:1.2rem;
-    font-weight:800;
-    color:var(--accent);
-    margin-bottom:12px;
-    text-align:center;
-">
-    🔍 Research Note
-</div>
+        font-size:1.2rem;
+        font-weight:800;
+        color:var(--accent);
+        margin-bottom:12px;
+        text-align:center;
+    ">
+        🔍 Research Note
+    </div>
 
+    <!-- Intro -->
     <p style="margin-bottom:14px;">
-        This checklist tells you exactly what to look for when going to any platform or website to research a ticker you're interested in.
+        This checklist shows you exactly what to look for when you open any research platform
+        (MarketWatch, Yahoo Finance, ETF.com, Vanguard, etc.) for a ticker you're interested in.
+        Keep it simple — each asset type only needs a few key metrics.
     </p>
-    
+
+    <!-- Main header like your current design -->
     <div style="
-    font-size:1.15rem;
-    font-weight:700;
-    color:var(--accent);
-    margin-top:18px;
-    margin-bottom:10px;
-">
-    What to Look For
-</div>
+        font-size:1.15rem;
+        font-weight:700;
+        color:var(--accent);
+        margin-top:18px;
+        margin-bottom:10px;
+    ">
+        What to Look For
+    </div>
 
-    <ul style="margin-left:18px; margin-bottom:25px; line-height:2;">
+    <!-- =============================== -->
+    <!--   ETFs / INDEX FUNDS / MUTUALS  -->
+    <!-- =============================== -->
+    <div style="font-size:1.05rem; font-weight:700; color:var(--accent); margin-bottom:6px;">
+        📘 ETFs • Index Funds • Mutual Funds
+    </div>
 
-        <li>
-            <strong>Index / Benchmark Tracked:</strong> What the fund follows.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = ETFs, Index Funds, Mutual Funds, Bonds
-            </div>
-        </li>
-
-        <li>
-            <strong>Holdings:</strong> What’s inside and how concentrated it is.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = ETFs, Index Funds, Mutual Funds
-            </div>
-        </li>
-
-        <li>
-            <strong>Sector / Category:</strong> Tech, growth, value, international, etc.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = Stocks, ETFs, Mutual Funds
-            </div>
-        </li>
-
-        <li>
-            <strong>Expense Ratio:</strong> Yearly fee.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = ETFs, Index Funds, Mutual Funds
-            </div>
-        </li>
-
-        <li>
-            <strong>Performance History:</strong> 1-year, 5-year, 10-year trends.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = Stocks, ETFs, Index Funds, Mutual Funds, Crypto
-            </div>
-        </li>
-
-        <li>
-            <strong>Volatility / Risk:</strong> How much the price moves.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = Stocks, ETFs, Bonds, Commodities, Crypto
-            </div>
-        </li>
-
-        <li>
-            <strong>Purpose in Your Portfolio:</strong> Growth, stability, income, hedge, exposure.
-            <div style="font-size:0.85rem; color:var(--muted); margin-top:4px; margin-bottom:10px;">
-            * Category = All Categories
-            </div>
-        </li>
-
+    <ul style="margin-left:18px; margin-bottom:22px; line-height:2;">
+        <li><strong>Index Tracked:</strong> What benchmark the fund follows (S&P 500, Total Market, International, Bonds, etc.).</li>
+        <li><strong>Holdings:</strong> What’s inside the fund and how concentrated it is (top 10 holdings, sectors).</li>
+        <li><strong>Sector Exposure:</strong> How much is in tech, value, international, bonds, etc.</li>
+        <li><strong>Expense Ratio:</strong> The yearly fee to own the fund.</li>
+        <li><strong>Performance History:</strong> 1-year, 5-year, 10-year trends.</li>
     </ul>
 
-    <div style="font-size:1.15rem; font-weight:700; color:var(--accent); margin-bottom:10px;">
+    <div style="font-size:0.9rem; color:var(--muted); margin-left:18px; margin-top:-8px; margin-bottom:22px;">
+        For most beginners, these are the only fund metrics that truly matter.
+    </div>
+
+    <!-- =============================== -->
+    <!--             STOCKS              -->
+    <!-- =============================== -->
+    <div style="font-size:1.05rem; font-weight:700; color:var(--accent); margin-bottom:6px;">
+        📈 Stocks
+    </div>
+
+    <ul style="margin-left:18px; margin-bottom:22px; line-height:2;">
+        <li><strong>Market Cap:</strong> Size of the company (small, mid, large).</li>
+        <li><strong>Revenue &amp; Profit Trend:</strong> Is the business growing or shrinking over time?</li>
+        <li><strong>EPS:</strong> Earnings per share — how much profit each share represents.</li>
+        <li><strong>P/E Ratio:</strong> Valuation based on earnings. Compare mainly to the stock’s own historical range.</li>
+        <li><strong>Dividend Yield:</strong> Yearly income paid to shareholders (if any).</li>
+        <li><strong>Price Trend:</strong> 1-year and 5-year chart direction (up, flat, or down?).</li>
+        <li><strong>Debt Levels:</strong> High debt usually means higher risk.</li>
+        <li><strong>Volatility &amp; News:</strong> Recent events or headlines driving big price moves.</li>
+    </ul>
+
+    <div style="font-size:0.9rem; color:var(--muted); margin-left:18px; margin-top:-8px; margin-bottom:22px;">
+        Advanced metrics (margins, cash flow, ROE, etc.) can help later, but they’re optional for beginners.
+    </div>
+
+    <!-- =============================== -->
+    <!--             CRYPTO              -->
+    <!-- =============================== -->
+    <div style="font-size:1.05rem; font-weight:700; color:var(--accent); margin-bottom:6px;">
+        🪙 Crypto
+    </div>
+
+    <ul style="margin-left:18px; margin-bottom:22px; line-height:2;">
+        <li><strong>Market Cap:</strong> Size and relative importance of the coin or token.</li>
+        <li><strong>Use Case:</strong> What problem it tries to solve (payments, smart contracts, infrastructure, etc.).</li>
+        <li><strong>Development &amp; Ecosystem:</strong> Active team, updates, and real usage.</li>
+        <li><strong>Volatility:</strong> How wild the price swings are.</li>
+        <li><strong>Security &amp; Reputation:</strong> Is it well-known and established, or a new speculative project?</li>
+    </ul>
+
+    <div style="font-size:0.9rem; color:var(--muted); margin-left:18px; margin-top:-8px; margin-bottom:22px;">
+        Crypto is extremely volatile and speculative — never treat it like a “safe” core holding.
+    </div>
+
+    <!-- =============================== -->
+    <!--          UNIVERSAL CHECKS       -->
+    <!-- =============================== -->
+    <div style="font-size:1.05rem; font-weight:700; color:var(--accent); margin-bottom:6px;">
+        🌐 Applies to All Assets
+    </div>
+
+    <ul style="margin-left:18px; margin-bottom:18px; line-height:2;">
+        <li><strong>Volatility / Risk:</strong> How much the price moves up and down.</li>
+        <li><strong>Time Horizon:</strong> Is this for the short term, long term, or retirement?</li>
+        <li><strong>Purpose in Your Portfolio:</strong> Growth, income, stability, hedge, or just “fun money.”</li>
+    </ul>
+
+    <!-- =============================== -->
+    <!--     BEST PLACES TO RESEARCH     -->
+    <!-- =============================== -->
+    <div style="font-size:1.15rem; font-weight:700; color:var(--accent); margin-top:10px; margin-bottom:8px;">
         Best Places to Research Tickers
     </div>
 
-    <ul style="margin-left:18px; line-height:1.9; margin-bottom:25px;">
-        <li>📊 <strong>MarketWatch</strong> — Overview, fundamentals, finacials</li>
-        <li>🟦 <strong>Yahoo Finance</strong> — Charts, news, analysis</li>
-        <li>📈 <strong>TradingView</strong> — best for stocks, ETFs, Crypto, Commodities, Global markets</li>
-        <li>💼 <strong>ETF.com</strong> — Holdings, sectors, fees (ETFs only)</li>
-        <li>🏛️ <strong>Vanguard / Fidelity / Schwab</strong> — required for researching Index funds</li>
-        <li>₿ <strong>CoinMarketCap / CoinGecko</strong> — Crypto research</li>
+    <ul style="margin-left:18px; line-height:1.9; margin-bottom:10px;">
+        <li>📊 <strong>MarketWatch</strong> — Overview, fundamentals, financials.</li>
+        <li>🟦 <strong>Yahoo Finance</strong> — Charts, news, basic analysis.</li>
+        <li>📈 <strong>TradingView</strong> — Best for stocks, ETFs, crypto, commodities, global markets.</li>
+        <li>💼 <strong>ETF.com</strong> — Holdings, sectors, fees (ETFs only).</li>
+        <li>🏛️ <strong>Vanguard / Fidelity / Schwab</strong> — Required for researching index funds and mutual funds.</li>
+        <li>₿ <strong>CoinMarketCap / CoinGecko</strong> — Crypto research.</li>
     </ul>
 
 </div>
+<!-- END RESEARCH NOTE -->
 
     <!-- BEGIN ACCORDIONS -->
 
