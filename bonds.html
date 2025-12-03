@@ -134,10 +134,221 @@
             font-size:0.95rem;
             color:#fff;
         }
+        /* ============================
+   NAV BAR CORE (COPY THIS)
+============================ */
+
+/* FIXED HEADER */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(11,14,18,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 26px;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform .38s ease-out, border-bottom .38s ease;
+}
+
+.fixed-header.scrolled {
+    transform: translateY(0);
+    border-bottom: 1px solid rgba(59,130,246,0.4);
+}
+
+/* LOGO */
+.logo-mixed {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.logo-orb {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 6px #3b82f6);
+}
+
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #e9eef6;
+}
+
+/* HAMBURGER */
+.menu-btn {
+    width: 26px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    width: 100%;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.menu-btn.active span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.menu-btn.active span:nth-child(2) { opacity: 0; }
+.menu-btn.active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+/* MOBILE MENU */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: rgba(11,14,18,0.92);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255,255,255,0.08);
+    padding: 80px 25px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: 2000;
+    transition: right .35s ease;
+}
+
+.mobile-menu.open {
+    right: 0;
+}
+
+/* Close button */
+.menu-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 1.9rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Menu Title */
+.menu-title {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 22px;
+}
+
+/* Shimmer underline */
+.menu-title-underline {
+    position: relative;
+    width: 60%;
+    height: 2px;
+    margin: 8px auto 25px;
+    background: linear-gradient(
+        90deg,
+        rgba(59,130,246,0),
+        rgba(59,130,246,0.8),
+        rgba(59,130,246,0)
+    );
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
+
+.menu-title-underline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0.9),
+        rgba(255,255,255,0)
+    );
+    transform: skewX(-20deg);
+    opacity: 0.7;
+    animation: shimmerSweep 2.8s infinite ease-in-out;
+}
+
+@keyframes shimmerSweep {
+    0%   { left: -40%; opacity: 0; }
+    30%  { opacity: .7; }
+    50%  { left: 100%; opacity: 1; }
+    70%  { opacity: .4; }
+    100% { left: 120%; opacity: 0; }
+}
+
+/* Menu Items */
+.menu-item {
+    display: block;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+    transition: .25s ease;
+}
+
+.menu-item:hover {
+    background: rgba(59,130,246,0.12);
+    border-color: var(--accent);
+    transform: translateX(4px);
+}
     </style>
 </head>
 
 <body>
+    <header id="fixedHeader" class="fixed-header">
+    <a href="https://mywealthpath.org" class="logo-mixed">
+        <img src="images/logo-orb.png" class="logo-orb" alt="logo">
+        <span class="logo-text">WealthPath</span>
+    </a>
+
+    <div id="menuBtn" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="menu-close" onclick="toggleMenu()">✕</div>
+
+    <div class="menu-title">WealthPath Menu</div>
+    <div class="menu-title-underline"></div>
+
+    <a href="index.html" class="menu-item">🏠 Explorer Home</a>
+    <a href="research.html" class="menu-item">🔍 Research Guide</a>
+    <a href="stocks.html" class="menu-item">📈 Stocks</a>
+    <a href="etfs.html" class="menu-item">📊 ETFs</a>
+    <a href="index-funds.html" class="menu-item">📘 Index Funds</a>
+    <a href="mutual-funds.html" class="menu-item">📗 Mutual Funds</a>
+    <a href="bonds.html" class="menu-item">💵 Bonds</a>
+    <a href="commodities.html" class="menu-item">🌾 Commodities</a>
+    <a href="crypto.html" class="menu-item">🪙 Crypto</a>
+
+    <div style="height: 25px;"></div>
+
+    <a href="https://mywealthpath.org#tools" class="menu-item">🧰 Learning Toolkit</a>
+    <a href="https://mywealthpath.org/privacy.html" class="menu-item">🔒 Privacy Policy</a>
+    <a href="https://mywealthpath.org/terms.html" class="menu-item">📄 Terms of Use</a>
+    <a href="mailto:info@mywealthpath.org" class="menu-item">✉️ Contact Us</a>
+</div>
 
     <div class="animated-bg"></div>
     <div class="orb blue"></div>
@@ -313,6 +524,31 @@
     </a>
 
 </div>
+<script>
+function handleScrollGlow() {
+    const header = document.getElementById("fixedHeader");
+    if (window.scrollY > 150) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+}
+window.addEventListener("scroll", handleScrollGlow);
+
+// Toggle Menu
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const body = document.body;
+
+    menu.classList.toggle("open");
+    document.getElementById("menuBtn").classList.toggle("active");
+
+    if (menu.classList.contains("open")) {
+        body.style.overflow = "hidden";
+    } else {
+        body.style.overflow = "";
+    }
+}
+
+document.getElementById("menuBtn").addEventListener("click", toggleMenu);
+</script>
    
 </body>
 </html>
