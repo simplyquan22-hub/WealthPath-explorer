@@ -97,6 +97,66 @@
             opacity: 0.85;
             box-shadow: 0 0 12px rgba(59,130,246,0.45);
         }
+        /* ============================
+   WealthPath Explorer — Soft Blue Glow Cards
+============================ */
+
+.explorer-card {
+    background: radial-gradient(
+        circle at center,
+        rgba(59,130,246,0.05),   /* faint blue core */
+        rgba(11,14,18,0.95) 70%  /* deep outer */
+    );
+    border-radius: 22px;
+
+    border: 1px solid rgba(59,130,246,0.22); /* softer border */
+
+    box-shadow:
+        0 0 14px rgba(59,130,246,0.22),   /* outer halo (soft) */
+        0 0 26px rgba(59,130,246,0.12),   /* secondary halo */
+        inset 0 0 10px rgba(59,130,246,0.15); /* inner glow */
+    
+    padding: 28px;
+    margin-bottom: 28px;
+
+    backdrop-filter: blur(10px);
+    transition: transform .35s ease, box-shadow .45s ease;
+}
+
+/* Hover (desktop) + Tap (mobile) */
+.explorer-card:hover,
+.explorer-card.touch-glow {
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 22px rgba(59,130,246,0.35),
+        0 0 40px rgba(59,130,246,0.22),
+        inset 0 0 12px rgba(59,130,246,0.22);
+}
+
+/* Category text */
+.explorer-card-category {
+    color: #3b82f6;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+/* Title */
+.explorer-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+/* Description */
+.explorer-card-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.55;
+}
 
         /* CATEGORY GRID */
         .category-grid {
