@@ -243,6 +243,18 @@
             font-size: 0.97rem;
             color: var(--muted);
         }
+        .category-card.touch-glow {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 26px rgba(59,130,246,0.55),
+        0 0 14px rgba(59,130,246,0.35),
+        inset 0 0 12px rgba(59,130,246,0.22);
+    border-color: rgba(59,130,246,0.65);
+}
+
+.category-card.touch-glow::before {
+    opacity: 1;
+}
 
         /* CTA SECTION */
         .cta-section {
@@ -444,6 +456,18 @@
             This site is for education only and is not financial advice.
         </p>
     </div>
+    
+    <script>
+document.querySelectorAll(".category-card").forEach(card => {
+    card.addEventListener("touchstart", () => {
+        card.classList.add("touch-glow");
+    });
+
+    card.addEventListener("touchend", () => {
+        setTimeout(() => card.classList.remove("touch-glow"), 200);
+    });
+});
+</script>
 
 </body>
 </html>
