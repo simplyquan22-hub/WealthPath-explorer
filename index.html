@@ -458,7 +458,7 @@
     text-decoration: none;
     margin-bottom: 14px;
     font-size: 1.05rem;
-    transition: .25s ease;
+    transition: transform .25s ease;
 }
 
 .menu-item:hover {
@@ -625,6 +625,24 @@
 .menu-item:hover,
 .menu-item:focus {
     text-decoration: none;
+}
+/* FIX iOS tap highlight not showing */
+.menu-item {
+    -webkit-tap-highlight-color: rgba(59,130,246,0.35); /* blue glow */
+}
+
+/* When tapping */
+.menu-item:active {
+    background: rgba(59,130,246,0.18);
+    border-color: rgba(59,130,246,0.6);
+    transform: scale(0.98);
+}
+
+/* When focused (keyboard / Safari fallback) */
+.menu-item:focus-visible {
+    outline: 2px solid rgba(59,130,246,0.9);
+    outline-offset: 3px;
+    border-color: rgba(59,130,246,0.9);
 }
     </style>
 </head>
