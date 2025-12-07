@@ -298,7 +298,6 @@
 
 /* Menu Items */
 .menu-item {
-    display: block;
     padding: 14px 18px;
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.05);
@@ -307,6 +306,13 @@
     text-decoration: none;
     margin-bottom: 14px;
     font-size: 1.05rem;
+    
+    /* THE FIX → make emoji + text align side-by-side */
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    /* keep your animation */
     transition: transform .25s ease;
 }
 
@@ -377,24 +383,6 @@
 /* ====================
    MOBILE MENU ENHANCEMENT
 ==================== */
-.menu-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    
-    /* keep original styles */
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    margin-bottom: 14px;
-    padding: 14px 18px;
-
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.05rem;
-    transition: transform .25s ease;
-}
-
 
 /* Icon (left side) */
 .item-icon {
@@ -432,10 +420,6 @@
 /* Tweak hover effect to handle the two lines */
 .menu-item:hover {
     text-decoration: none;
-}
-/* Tap highlight + instant blue glow */
-.menu-item {
-    -webkit-tap-highlight-color: rgba(59,130,246,0.35);
 }
 
 .menu-item:active {
