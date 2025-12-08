@@ -123,12 +123,17 @@
             background:rgba(255,255,255,0.04);
         }
 
-        .accordion-icon {
-            font-size:1.6rem;
-            font-weight:800;
-            color:var(--accent);
-            transition:.25s ease;
-        }
+       .accordion-icon {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent);
+    transition: .25s ease;
+
+    /* 🔥 Same glow as Research Note / Important headers */
+    text-shadow:
+        0 0 6px rgba(59,130,246,0.45),
+        0 0 12px rgba(59,130,246,0.25);
+}
 
         .accordion-content {
             display:none;
