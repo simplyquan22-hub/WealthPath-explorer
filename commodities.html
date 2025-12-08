@@ -416,6 +416,34 @@
 .menu-item:focus {
     text-decoration: none;
 }
+.wp-btn {
+    display: block;              /* <-- STACKS THEM ALWAYS */
+    width: fit-content;          /* keeps normal button size */
+    margin: 0 auto;              /* center horizontally */
+    padding: 12px 26px;
+    border-radius: 30px;
+    background: #3b82f6;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(59,130,246,0.45);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.25s ease;
+}
+
+.wp-btn + .wp-btn {
+    margin-top: 18px;            /* <-- SPACE BETWEEN BACK & NEXT BUTTON */
+}
+
+.wp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(59,130,246,0.85);
+}
+
+.wp-btn:active {
+    transform: scale(.95);
+}
     </style>
 
 </head>
@@ -757,33 +785,16 @@
     </div>
 <div style="text-align:center; margin-top:50px; margin-bottom:80px;">
 
-    <a href="mutual-funds.html"
-       style="display:inline-block; margin:0 18px; padding:12px 26px;
-              border-radius:30px; background:rgba(255,255,255,0.08);
-              border:1px solid rgba(255,255,255,0.15); color:var(--accent);
-              font-size:1rem; font-weight:600; text-decoration:none;
-              transition:0.25s ease; box-shadow:0 0 6px rgba(59,130,246,0.35),
-              inset 0 0 6px rgba(255,255,255,0.05);"
-       onmouseover="this.style.boxShadow='0 0 18px rgba(59,130,246,0.7), 0 0 10px rgba(59,130,246,0.45)'"
-       onmouseout="this.style.boxShadow='0 0 6px rgba(59,130,246,0.35), inset 0 0 6px rgba(255,255,255,0.05)'"
-    >
-       ← Previous: Mutual Funds
+    <a href="mutual-funds.html" class="wp-btn" style="display:block; margin:0 auto 18px;">
+        ← Previous: Mutual Funds
     </a>
 
-    <a href="crypto.html"
-       style="display:inline-block; margin:0 18px; padding:12px 26px;
-              border-radius:30px; background:rgba(255,255,255,0.08);
-              border:1px solid rgba(255,255,255,0.15); color:var(--accent);
-              font-size:1rem; font-weight:600; text-decoration:none;
-              transition:0.25s ease; box-shadow:0 0 6px rgba(59,130,246,0.35),
-              inset 0 0 6px rgba(255,255,255,0.05);"
-       onmouseover="this.style.boxShadow='0 0 18px rgba(59,130,246,0.7), 0 0 10px rgba(59,130,246,0.45)'"
-       onmouseout="this.style.boxShadow='0 0 6px rgba(59,130,246,0.35), inset 0 0 6px rgba(255,255,255,0.05)'"
-    >
-       Next → Crypto
+    <a href="crypto.html" class="wp-btn" style="display:block; margin:0 auto;">
+        Next → Crypto
     </a>
 
 </div>
+
 <script>
 function handleScrollGlow() {
     const header = document.getElementById("fixedHeader");
