@@ -518,6 +518,82 @@
     outline-offset: 3px;
     border-color: rgba(59,130,246,0.9);
 }
+/* ==========================================================
+   WEALTHPATH — COMPACT MENU FOR PRIVACY & TERMS PAGES
+   Same style as landing page (smaller, cleaner, premium)
+   ========================================================== */
+
+/* ----- MENU PANEL (smaller, cleaner) ----- */
+.mobile-menu {
+    width: 245px !important;
+    padding: 70px 18px !important;
+    background: rgba(11,14,18,0.92) !important;
+    border-left: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+}
+
+/* ----- MENU ITEMS (tight, premium) ----- */
+.menu-item {
+    padding: 10px 14px !important; /* smaller buttons */
+    margin-bottom: 10px !important; /* reduced spacing */
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+/* ----- ICONS smaller ----- */
+.item-icon {
+    font-size: 1.25rem !important;
+    width: 26px !important;
+}
+
+/* ----- TEXT smaller + tighter ----- */
+.item-title {
+    font-size: 0.95rem !important;
+}
+.item-subtext {
+    font-size: 0.78rem !important;
+    margin-top: 2px !important;
+}
+
+/* ----- HOVER / TAP FEEDBACK BLUE ----- */
+.menu-item:hover,
+.menu-item:active {
+    background: rgba(59,130,246,0.16) !important;
+    border-color: rgba(59,130,246,0.55) !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 0 12px rgba(59,130,246,0.35) !important;
+}
+
+/* ----- CLOSE BUTTON smaller ----- */
+.menu-close {
+    font-size: 1.55rem !important;
+    top: 14px !important;
+    right: 14px !important;
+}
+
+/* ----- MENU TITLE smaller ----- */
+.menu-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 15px !important;
+}
+.menu-title-underline {
+    margin-bottom: 20px !important;
+    width: 55% !important;
+}
+
+/* ----- Scroll Fix ----- */
+.mobile-menu {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ----- Fix cramped space on very short screens ----- */
+@media (max-height: 700px) {
+    .mobile-menu {
+        padding-top: 55px !important;
+    }
+}
     </style>
 </head>
 
