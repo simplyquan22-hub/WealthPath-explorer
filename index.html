@@ -645,81 +645,88 @@
     outline-offset: 3px;
     border-color: rgba(59,130,246,0.9);
 }
-/* ==========================================================
-   WEALTHPATH — COMPACT MENU FOR PRIVACY & TERMS PAGES
-   Same style as landing page (smaller, cleaner, premium)
-   ========================================================== */
+/* ===========================================
+   COMPACT MENU V2 — Explorer Pages
+   Smaller buttons • tighter spacing • clean UI
+=========================================== */
 
-/* ----- MENU PANEL (smaller, cleaner) ----- */
 .mobile-menu {
-    width: 245px !important;
-    padding: 70px 18px !important;
-    background: rgba(11,14,18,0.92) !important;
-    border-left: 1px solid rgba(255,255,255,0.08);
+    position: fixed;
+    top: 0;
+    right: -240px;        /* hidden offset */
+    width: 240px;         /* compact size */
+    height: 100vh;
+    padding: 70px 18px 30px;
+    background: rgba(11,14,18,0.95);
     backdrop-filter: blur(10px);
-}
-
-/* ----- MENU ITEMS (tight, premium) ----- */
-.menu-item {
-    padding: 10px 14px !important; /* smaller buttons */
-    margin-bottom: 10px !important; /* reduced spacing */
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 10px;
-}
-
-/* ----- ICONS smaller ----- */
-.item-icon {
-    font-size: 1.25rem !important;
-    width: 26px !important;
-}
-
-/* ----- TEXT smaller + tighter ----- */
-.item-title {
-    font-size: 0.95rem !important;
-}
-.item-subtext {
-    font-size: 0.78rem !important;
-    margin-top: 2px !important;
-}
-
-/* ----- HOVER / TAP FEEDBACK BLUE ----- */
-.menu-item:hover,
-.menu-item:active {
-    background: rgba(59,130,246,0.16) !important;
-    border-color: rgba(59,130,246,0.55) !important;
-    transform: translateX(4px) !important;
-    box-shadow: 0 0 12px rgba(59,130,246,0.35) !important;
-}
-
-/* ----- CLOSE BUTTON smaller ----- */
-.menu-close {
-    font-size: 1.55rem !important;
-    top: 14px !important;
-    right: 14px !important;
-}
-
-/* ----- MENU TITLE smaller ----- */
-.menu-title {
-    font-size: 1.1rem !important;
-    margin-bottom: 15px !important;
-}
-.menu-title-underline {
-    margin-bottom: 20px !important;
-    width: 55% !important;
-}
-
-/* ----- Scroll Fix ----- */
-.mobile-menu {
+    border-left: 1px solid rgba(255,255,255,0.08);
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    transition: right .35s ease;
+    z-index: 2000;
 }
 
-/* ----- Fix cramped space on very short screens ----- */
-@media (max-height: 700px) {
-    .mobile-menu {
-        padding-top: 55px !important;
-    }
+.mobile-menu.open {
+    right: 0;
+}
+
+/* Close button */
+.menu-close {
+    top: 16px;
+    right: 16px;
+    font-size: 1.6rem;
+}
+
+/* Title */
+.menu-title {
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+/* Underline */
+.menu-title-underline {
+    width: 50%;
+    margin-bottom: 18px;
+}
+
+/* Compact menu item */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;          /* MUCH SMALLER */
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 10px;
+    margin-bottom: 10px;         /* Tighter stack */
+    text-decoration: none;
+    color: #fff;
+    transition: background .2s ease, transform .2s ease;
+}
+
+/* Hover */
+.menu-item:hover {
+    background: rgba(59,130,246,0.15);
+    border-color: rgba(59,130,246,0.4);
+    transform: translateX(3px);
+}
+
+/* Icon (smaller) */
+.item-icon {
+    font-size: 1.3rem;        /* smaller icon */
+    width: 26px;
+    text-align: center;
+}
+
+/* Text (smaller too) */
+.item-title {
+    font-size: 0.92rem;       /* reduced title size */
+    font-weight: 600;
+}
+
+.item-subtext {
+    font-size: 0.75rem;       /* smaller subtext */
+    margin-top: 2px;
+    color: var(--muted);
 }
     </style>
 </head>
