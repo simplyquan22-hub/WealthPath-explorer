@@ -13,7 +13,7 @@
     --bg: #0b0e12;
     --text: #e9eef6;
     --muted: #9aa4b2;
-    --accent: #3b82f6;
+    --accent: #7c3aeb;
     --border: rgba(255,255,255,0.12);
     --card-bg: rgba(255,255,255,0.06);
 }
@@ -192,7 +192,7 @@ h1 {
     height: 42px;
     width: 42px;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px #3b82f6);
+    filter: drop-shadow(0 0 10px #7c3aeb);
     transition: transform 0.25s ease, filter 0.25s ease;
     cursor: pointer;
 }
@@ -541,6 +541,36 @@ h1 {
         padding-top: 55px !important;
     }
 }
+.cta-divider {
+    border: none;
+    height: 2px;
+    width: 55%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(124,58,237,0.9),
+        transparent
+    );
+    border-radius: 4px;
+    opacity: 0.85;
+    animation: divider-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes divider-glow {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.45;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 100% 50%;
+        opacity: 0.45;
+    }
+}
     </style>
 
 </head>
@@ -731,7 +761,9 @@ h1 {
             This page guides you with clarity so you don’t get lost in the hype.
         </p>
 
-        <hr class="blue-divider">
+        <div class="cta-divider-container" style="padding: 20px 0;">
+    <hr class="cta-divider">
+</div>
 
         <!-- WHAT IT IS -->
         <div class="card">
