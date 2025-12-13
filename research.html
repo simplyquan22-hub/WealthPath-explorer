@@ -332,23 +332,27 @@
     margin-bottom: 22px;
 }
 
-/* Shimmer underline */
+/* Animated shimmer underline (Landing Page exact version) */
 .menu-title-underline {
     position: relative;
     width: 60%;
     height: 2px;
     margin: 8px auto 25px;
+
     background: linear-gradient(
         90deg,
-        rgba(59,130,246,0),
-        rgba(59,130,246,0.8),
-        rgba(59,130,246,0)
+        rgba(124,58,237,0),
+        rgba(124,58,237,0.8),
+        rgba(124,58,237,0)
     );
+
     border-radius: 2px;
     overflow: hidden;
-    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+
+    box-shadow: 0 0 8px rgba(124,58,237,0.6);
 }
 
+/* INSET SHIMMER BAR */
 .menu-title-underline::after {
     content: "";
     position: absolute;
@@ -356,12 +360,14 @@
     left: -40%;
     width: 40%;
     height: 100%;
+
     background: linear-gradient(
         90deg,
         rgba(255,255,255,0),
         rgba(255,255,255,0.9),
         rgba(255,255,255,0)
     );
+
     transform: skewX(-20deg);
     opacity: 0.7;
     animation: shimmerSweep 2.8s infinite ease-in-out;
