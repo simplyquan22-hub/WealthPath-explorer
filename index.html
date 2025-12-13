@@ -441,58 +441,26 @@
 }
 
 /* Clean underline (NO COLOR SWEEP) */
-.menu-title-underline {
-    width: 60%;
-    height: 2px;
-    background: rgba(59,130,246,0.6);
-    margin: 0 auto 30px;
-    border-radius: 2px;
-}
+/* ===========================
+   MENU TITLE UNDERLINE — ROYAL PURPLE (SHIMMER)
+   =========================== */
 
-/* Menu Item */
-.menu-item {
-    display: block;
-    padding: 14px 18px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    color: #ffffff;
-    text-decoration: none;
-    margin-bottom: 14px;
-    font-size: 1.05rem;
-    transition: transform .25s ease;
-}
-
-.menu-item:hover {
-    background: rgba(59,130,246,0.12);
-    border-color: var(--accent);
-    transform: translateX(4px);
-}
-/* Remove underline from the WealthPath logo link */
-.header-logo,
-.header-logo:visited,
-.header-logo:focus,
-.header-logo:active {
-    text-decoration: none !important;
-    border: none !important;
-    outline: none !important;
-}
-/* Animated shimmer underline (Landing Page exact version) */
 .menu-title-underline {
     position: relative;
     width: 60%;
     height: 2px;
-    margin: 8px auto 25px;
+    margin: 8px auto 30px;
+
     background: linear-gradient(
         90deg,
         rgba(124,58,237,0),
         rgba(124,58,237,0.8),
         rgba(124,58,237,0)
     );
-}
+
     border-radius: 2px;
     overflow: hidden;
-    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+    box-shadow: 0 0 8px rgba(124,58,237,0.6);
 }
 
 /* INSET SHIMMER BAR */
@@ -503,15 +471,53 @@
     left: -40%;
     width: 40%;
     height: 100%;
+
     background: linear-gradient(
         90deg,
         rgba(255,255,255,0),
         rgba(255,255,255,0.9),
         rgba(255,255,255,0)
     );
+
     transform: skewX(-20deg);
     opacity: 0.7;
     animation: shimmerSweep 2.8s infinite ease-in-out;
+}
+
+/* ===========================
+   MENU ITEM
+   =========================== */
+
+.menu-item {
+    display: block;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 14px;
+    font-size: 1.05rem;
+    transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+
+.menu-item:hover {
+    background: rgba(124,58,237,0.12);
+    border-color: rgba(124,58,237,0.45);
+    transform: translateX(4px);
+}
+
+/* ===========================
+   REMOVE LOGO UNDERLINE
+   =========================== */
+
+.header-logo,
+.header-logo:visited,
+.header-logo:focus,
+.header-logo:active {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
 }
 
 @keyframes shimmerSweep {
