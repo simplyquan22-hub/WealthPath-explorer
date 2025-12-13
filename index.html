@@ -195,18 +195,18 @@
 
     background: radial-gradient(
         circle at center,
-        rgba(59,130,246,0.05),   /* softer blue core */
+        rgba(124,58,237,0.05),   /* softer royal purple core */
         rgba(11,14,18,0.96) 70%
     );
 
     border-radius: 18px;
-    border: 1px solid rgba(59,130,246,0.18); /* lighter border */
+    border: 1px solid rgba(124,58,237,0.18); /* lighter border */
 
     /* glow toned down */
     box-shadow:
-        0 0 10px rgba(59,130,246,0.18),
-        0 0 20px rgba(59,130,246,0.10),
-        inset 0 0 8px rgba(59,130,246,0.12);
+        0 0 10px rgba(124,58,237,0.18),
+        0 0 20px rgba(124,58,237,0.10),
+        inset 0 0 8px rgba(124,58,237,0.12);
 
     padding: 20px 18px;
     text-align: left;
@@ -227,26 +227,27 @@
     opacity: 0.15;
 
     background:
-        radial-gradient(circle at top left, rgba(59,130,246,0.10), transparent 70%),
-        radial-gradient(circle at bottom right, rgba(59,130,246,0.10), transparent 70%);
+        radial-gradient(circle at top left, rgba(124,58,237,0.10), transparent 70%),
+        radial-gradient(circle at bottom right, rgba(124,58,237,0.10), transparent 70%);
     transition: opacity .25s ease;
 }
 
-/* hover / tap glow toned way down */
+/* STRONG hover + tap glow (desktop + mobile) */
 .category-card:hover,
+.category-card:active,
 .category-card.touch-glow {
     transform: translateY(-4px);
-    border-color: rgba(59,130,246,0.30);
+    border-color: rgba(124,58,237,0.45);
 
     box-shadow:
-        0 0 16px rgba(59,130,246,0.30),
-        0 0 26px rgba(59,130,246,0.16),
-        inset 0 0 10px rgba(59,130,246,0.14);
+        0 0 24px rgba(124,58,237,0.48),
+        0 0 44px rgba(124,58,237,0.28),
+        inset 0 0 14px rgba(124,58,237,0.22);
 }
-
 .category-card:hover::before,
+.category-card:active::before,
 .category-card.touch-glow::before {
-    opacity: 0.25;
+    opacity: 0.35;
 }
 /* FORCE ORIGINAL FONTS & ALIGNMENT */
 
