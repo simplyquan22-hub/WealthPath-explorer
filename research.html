@@ -594,6 +594,37 @@
         padding-top: 55px !important;
     }
 }
+
+.cta-divider {
+    border: none;
+    height: 2px;
+    width: 55%;
+    margin: auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(124,58,237,0.9),  /* Royal purple */
+        transparent
+    );
+    border-radius: 4px;
+    opacity: 0.85;
+
+    animation: divider-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes divider-glow {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0.45;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        background-position: 100% 50%;
+        opacity: 0.45;
+    }
+}
     </style>
 </head>
 
