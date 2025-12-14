@@ -961,6 +961,185 @@
   33% { transform: translate(56px, 0px) translateZ(0); }
   66% { transform: translate(60px, -32px) translateZ(0); }
 }
+footer {
+    padding: 50px 20px 0px;
+    background: transparent;
+    color: var(--muted);
+  
+}
+
+.footer-container {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Soft glow divider */
+.footer-divider {
+    width: 120px;
+    margin: 0 auto 28px;
+    border: 0;
+    border-top: 2px solid var(--accent);
+    opacity: 0.65;
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(59,130,246,0.35);
+}
+
+/* Brand line */
+.footer-brand {
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.45px;
+    color: #e9eef6;
+    opacity: 0.9;
+    margin-top: 18px;
+    margin-bottom: 30px;
+    white-space: nowrap;
+
+    /* Soft glow */
+    text-shadow: 0 0 6px rgba(255,255,255,0.25);
+
+    /* VISUAL CENTER FIX */
+    transform: translateX(-10px);
+}
+
+/* Footer Links — Stacked + Divider Lines + Gold Hover */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 30px 0 34px 0;
+}
+
+.footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.25s ease, transform 0.25s ease;
+    position: relative;
+}
+
+/* Gold Hover */
+.footer-links a:hover {
+    color: #facc15;
+    transform: translateY(-1px);
+}
+
+/* Divider lines under each link (except last) */
+.footer-links a:not(:last-child)::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 90%;
+    margin: 10px auto 0 auto;
+    background: linear-gradient(
+        to right,
+        rgba(250, 204, 21, 0.0),
+        rgba(250, 204, 21, 0.35),
+        rgba(250, 204, 21, 0.0)
+    );
+}
+
+/* STACKED FOOTER LINKS */
+.footer-links-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+.footer-links-stack a {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links-stack a:hover {
+    color: var(--accent);
+}
+
+/* Disclaimer */
+.footer-disclaimer-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 14px 12px;
+    max-width: 650px;
+    margin: 0 auto 20px;
+}
+
+.footer-disclaimer-box p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+/* Copyright */
+.footer-copy {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    margin-bottom: 0 !important; /* Use !important temporarily to guarantee it overrides everything */
+    padding-bottom: 0 !important;
+}
+/* --- Final CSS for the Top Divider (Adjusted Spacing) --- */
+.footer-top-divider {
+    /* ... existing positioning properties ... */
+    margin-left: -23px; 
+    margin-right: -23px;
+    width: calc(100% + 48px); 
+    
+    margin-top: 0; 
+    /* --- CRITICAL CHANGE HERE --- */
+    margin-bottom: 50px; /* Increased from 25px to 50px for more separation */
+    /* --- END CRITICAL CHANGE --- */
+    
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    opacity: 1;
+    border-radius: 1px;
+    
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+/* --- Footer CSS Adjustments for a Cleaner Look --- */
+
+/* 1. DISCLOSURE BOX ADJUSTMENTS */
+.footer-disclaimer-box {
+    /* Keep existing background and border styles (they look great) */
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    
+    /* TIGHTER PADDING: Slightly reduce vertical padding for a more compact look */
+    padding: 12px 14px; 
+    
+    /* PUSH IT UP: Reduce the margin below the link stack and before the copyright */
+    max-width: 650px;
+    margin: 30px auto 14px auto; /* Reduced margin-bottom from 20px to 14px */
+}
+
+/* 2. DISCLOSURE TEXT ADJUSTMENTS */
+.footer-disclaimer-box p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted);
+    /* Ensure the text is centered within the box */
+    text-align: center; 
+}
+
+/* 3. COPYRIGHT ADJUSTMENTS */
+.footer-copy {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    /* PULL UP CLOSER: Reduce margin to bring the copyright closer to the box */
+    margin-top: 10px; 
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
     </style>
 </head>
 
@@ -1331,10 +1510,32 @@
     </a>
 </div>
 
-        <p class="footer-note">
-            This site is for education only and is not financial advice.
+<footer>
+  <hr class="footer-top-divider">
+  
+    <div class="footer-container">
+
+        <p class="footer-brand">WealthPath — A Journey Uniquely Yours</p>
+
+        <div class="footer-links footer-links-stack">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:info@mywealthpath.org">Contact Us</a>
+</div>
+
+        <div class="footer-disclaimer-box">
+            <p>
+                WealthPath provides educational content only and is not a licensed financial advisor.
+                This information is not a substitute for professional guidance. Always consult a 
+                qualified professional before making investment decisions.
+            </p>
+        </div>
+
+        <p class="footer-copy">
+            © <span id="currentYear">2025</span> WealthPath. All rights reserved.
         </p>
     </div>
+</footer>
     
     <script>
 document.querySelectorAll(".category-card").forEach(card => {
