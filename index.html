@@ -962,10 +962,9 @@
   66% { transform: translate(60px, -32px) translateZ(0); }
 }
 footer {
-    padding: 50px 20px 0px;
+    padding: 50px 20px 8px; /* 🔧 reduced bottom padding to kill scroll gap */
     background: transparent;
     color: var(--muted);
-  
 }
 
 .footer-container {
@@ -999,17 +998,17 @@ footer {
     /* Soft glow */
     text-shadow: 0 0 6px rgba(255,255,255,0.25);
 
-    /* VISUAL CENTER FIX */
+    /* Visual centering */
     transform: translateX(-10px);
 }
 
-/* Footer Links — Stacked + Divider Lines + Gold Hover */
+/* Footer Links — Stacked + Divider Lines */
 .footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    margin: 30px 0 34px 0;
+    margin: 30px 0 30px 0; /* 🔧 tighter bottom spacing */
 }
 
 .footer-links a {
@@ -1048,8 +1047,7 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 28px;
-    margin-bottom: 28px;
+    margin: 26px 0 22px; /* 🔧 tightened */
 }
 
 .footer-links-stack a {
@@ -1063,83 +1061,70 @@ footer {
     color: var(--accent);
 }
 
-/* Disclaimer */
+/* Disclaimer Box */
 .footer-disclaimer-box {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px;
-    padding: 14px 12px;
+
+    padding: 12px 16px; /* 🔧 cleaner internal spacing */
     max-width: 650px;
-    margin: 0 auto 20px;
+
+    margin: 24px auto 10px auto; /* 🔧 pulled up + reduced gap */
+    backdrop-filter: blur(6px); /* subtle cohesion with header */
 }
 
+/* Disclaimer Text */
 .footer-disclaimer-box p {
     font-size: 0.82rem;
     line-height: 1.45;
     color: var(--muted);
+    text-align: center;
+
+    margin: 0; /* 🔥 CRITICAL: removes default paragraph drift */
 }
 
 /* Copyright */
 .footer-copy {
     font-size: 0.82rem;
     opacity: 0.8;
-    margin-bottom: 0 !important; /* Use !important temporarily to guarantee it overrides everything */
-    padding-bottom: 0 !important;
+
+    margin: 6px 0 0 0; /* 🔧 no bottom gap */
+    padding: 0;
 }
-/* --- Final CSS for the Top Divider (Adjusted Spacing) --- */
+
+/* Top Divider */
 .footer-top-divider {
-    /* ... existing positioning properties ... */
-    margin-left: -23px; 
+    margin-left: -23px;
     margin-right: -23px;
-    width: calc(100% + 48px); 
-    
-    margin-top: 0; 
-    /* --- CRITICAL CHANGE HERE --- */
-    margin-bottom: 50px; /* Increased from 25px to 50px for more separation */
-    /* --- END CRITICAL CHANGE --- */
-    
+    width: calc(100% + 48px);
+
+    margin-top: 0;
+    margin-bottom: 50px;
+
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 1;
     border-radius: 1px;
-    
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
-/* --- Footer CSS Adjustments for a Cleaner Look --- */
-
-/* 1. DISCLOSURE BOX ADJUSTMENTS */
-.footer-disclaimer-box {
-    /* Keep existing background and border styles (they look great) */
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    
-    /* TIGHTER PADDING: Slightly reduce vertical padding for a more compact look */
-    padding: 12px 14px; 
-    
-    /* PUSH IT UP: Reduce the margin below the link stack and before the copyright */
-    max-width: 650px;
-    margin: 30px auto 14px auto; /* Reduced margin-bottom from 20px to 14px */
-}
-
-/* 2. DISCLOSURE TEXT ADJUSTMENTS */
 .footer-disclaimer-box p {
     font-size: 0.82rem;
-    line-height: 1.45;
+    line-height: 1.55;              /* ⬅ slightly more breathable */
     color: var(--muted);
-    /* Ensure the text is centered within the box */
-    text-align: center; 
+
+    margin: 0 auto;                 /* center the text block */
+    max-width: 520px;               /* 🔥 CRITICAL: ideal reading width */
+
+    text-align: center;
+}
+.footer-disclaimer-box p {
+    text-wrap: balance;             /* modern browsers */
+    hyphens: none;
+    word-spacing: 0.02em;
 }
 
-/* 3. COPYRIGHT ADJUSTMENTS */
-.footer-copy {
-    font-size: 0.82rem;
-    opacity: 0.8;
-    /* PULL UP CLOSER: Reduce margin to bring the copyright closer to the box */
-    margin-top: 10px; 
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-}
+
     </style>
 </head>
 
